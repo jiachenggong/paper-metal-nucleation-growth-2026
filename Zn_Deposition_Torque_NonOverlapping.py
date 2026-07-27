@@ -17,7 +17,7 @@ def compute_delta_wulff(g002, g100, g101):
     return 8.0 * delta_gamma_rel
 
 
-def compute_nucleation_params(g002, g100, g101, ISI, Delta_mu=0.5, dx=0.5):
+def compute_nucleation_params(g002, g100, g101, ISI):
     gamma_avg = (g002 + g100 + g101) / 3.0
     gamma_eff = gamma_avg * (1.0 + 2.0 * ISI)
     r_crit = 2.0 * gamma_eff / Delta_mu
@@ -34,7 +34,7 @@ def compute_nucleation_params(g002, g100, g101, ISI, Delta_mu=0.5, dx=0.5):
     }
 
 
-def compute_pf_params(mol_name, dx=0.5):
+def compute_pf_params(mol_name):
     delta = compute_delta_wulff(g002, g100, g101)
     gamma_avg = (g002 + g100 + g101) / 3.0
     nuc = compute_nucleation_params(g002, g100, g101, isi, dx=dx)
